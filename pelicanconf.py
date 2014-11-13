@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Bryce Caine'
 SITENAME = u'Family Journals'
-SITEURL = ''
+SITEURL = '/'
 
 PATH = 'content'
 
@@ -20,14 +20,18 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
+"""
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
          ('You can modify those links in your config file', '#'),)
+"""
 
 # Social widget
+"""
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
+"""
 
 DEFAULT_PAGINATION = False
 
@@ -35,4 +39,4 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 STATIC_PATHS = ['images', '.']
-THEME = '/home/brycecaine/pelican-themes/elegant'
+THEME = '/home/brycecaine/pelican-themes/zurb-F5-basic'
