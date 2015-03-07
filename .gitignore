@@ -1,6 +1,7 @@
 /cache
 /output
 /content
+/raw
 *.pyc
 Makefile
 fabfile.py
