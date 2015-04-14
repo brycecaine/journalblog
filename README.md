@@ -28,6 +28,7 @@ PATH=<<<your PATH environment variable>>>
 
 #### Link to external content
 ```
+sudo mount -t cifs -o username=<<<username>>> //<<<ipaddress>>>/filestore ~/filestore/
 ln -s <<<path to mounted external-files directory>>> <<<project path>>>/journalblog/content
 ```
 
