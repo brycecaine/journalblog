@@ -1,7 +1,9 @@
 /cache
-/output
 /content
+/output
+/pelican-themes
 /raw
 *.pyc
-Makefile
 fabfile.py
+Makefile
+pelog.txt

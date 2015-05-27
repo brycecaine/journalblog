@@ -1,13 +1,13 @@
 #!/bin/bash
 
-cd /home/brycecaine/journalblog
+cd /home/brycecaine/workspace/journalblog
 rm -fr content
 mkdir content
 cp -r raw/* content
 
 echo 'Start'
 
-for file in $(find /home/brycecaine/journalblog/content -name '*.md')
+for file in $(find /home/brycecaine/workspace/journalblog/content -name '*.md')
 do
     echo "Begin: $file"
     # -------------------------------------------------------------------------
@@ -16,7 +16,7 @@ do
     # Get parent directory name to assign as author
     path=$(dirname $file)
     path_els=(${path//// })
-    name_el="${path_els[4]}"
+    name_el="${path_els[5]}"
     name=$(echo "$name_el" | tr _ " " | sed 's/[^ ]\+/\L\u&/g')
 
     # Get datetime of file
@@ -43,18 +43,18 @@ do
     done
 
     # Insert front matter into file
-    sed -i "1iTitle: $title\nDate: $date\nAuthor: $name\nTags: $tags\n" $file
+    sed -i "1iTitle: $title\nTags: $tags\n" $file
 
     # -------------------------------------------------------------------------
     # Moddify syntax for images
 
-	# Add {filename} prefix to image links
-	sed -i 's/{filename}//g' $file
-	sed -i 's/!\[image\](/!\[image\]({filename}/g' $file
+    # Add {filename} prefix to image links
+    sed -i 's/{filename}//g' $file
+    sed -i 's/!\[image\](/!\[image\]({filename}/g' $file
 
     # -------------------------------------------------------------------------
     # Change filename
-    mv "$file" "content/$name_el/journal_${name_el}_$file_date.md"
+    mv "$file" "$path/journal_${name_el}_$file_date.md"
     echo "End: $file"
 done
 

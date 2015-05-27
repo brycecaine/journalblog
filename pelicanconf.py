@@ -1,12 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import sys
 
-AUTHOR = u'Bryce Caine'
-SITENAME = u'Family Journals'
-SITEURL = '/'
+args = sys.argv
+PATH = args[1]
 
-PATH = 'content'
+subpath = args[1].split('/')[1]
+
+if subpath == 'personaljournal':
+    SITENAME = 'Bryce Caine'
+    FILENAME_METADATA = '(?P<title>[a-zA-Z_]+)\.md'
+    site_subdomain = 'brycecaine'
+else:
+    SITENAME = 'Ancestor Journals'
+    FILENAME_METADATA = 'journal_(?P<author>[a-zA-Z_]+)_(?P<date>\d{4}\.\d{2}\.\d{2}).*'
+    site_subdomain = 'ancestorjournals'
+
+OUTPUT_PATH = '/home/brycecaine/workspace/%s.github.io' % site_subdomain
+SITEURL = 'http://%s.github.io' % site_subdomain
+USE_FOLDER_AS_CATEGORY = False
 
 TIMEZONE = 'Europe/Paris'
 
@@ -39,4 +52,4 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 STATIC_PATHS = ['images', '.']
-THEME = '/home/brycecaine/pelican-themes/zurb-F5-basic'
+THEME = '/home/brycecaine/workspace/journalblog/pelican-themes/zurb-F5-basic'

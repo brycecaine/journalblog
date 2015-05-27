@@ -1,0 +1,9 @@
+Figure out omitting date on personal journal
+Rename journal to blog for personal journal
+Figure out tags
+Prep entries - figure out what makes sense in personal, don't do for ancestor (rely on meta data in post)
+Figure out regex matching
+Create script:
+* prep_entries if applicable
+* pelican command
+* git push
