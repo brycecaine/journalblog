@@ -28,10 +28,15 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 """
 
 # Social widget
-"""
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-"""
+SOCIAL = (
+    ('github', 'https://github.com/brycecaine'),
+    ('twitter', 'https://twitter.com/brycecaine'),
+)
+GITHUB_URL = 'http://github.com/brycecaine'
+TWITTER_USERNAME = 'brycecaine'
+
+DISQUS_SITENAME = 'brycecaine'
+GOOGLE_ANALYTICS = 'UA-55396444-1'
 
 DEFAULT_PAGINATION = False
 

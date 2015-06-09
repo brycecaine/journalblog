@@ -13,11 +13,11 @@ TIMEZONE = 'America/Denver'
 DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
+# FEED_ALL_ATOM = None
+# CATEGORY_FEED_ATOM = None
+# TRANSLATION_FEED_ATOM = None
+# AUTHOR_FEED_ATOM = None
+# AUTHOR_FEED_RSS = None
 
 # Blogroll
 """
@@ -28,10 +28,15 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 """
 
 # Social widget
-"""
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-"""
+SOCIAL = (
+    ('github', 'https://github.com/ancestorjournals'),
+    ('twitter', 'https://twitter.com/brycecaine'),
+)
+GITHUB_URL = 'http://github.com/ancestorjournals'
+TWITTER_USERNAME = 'brycecaine'
+
+DISQUS_SITENAME = 'ancestorjournals'
+GOOGLE_ANALYTICS = 'UA-55396444-2'
 
 DEFAULT_PAGINATION = False
 

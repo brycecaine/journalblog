@@ -1,3 +1,4 @@
+from dateutil.parser import parse
 import glob
 import os
 import re
@@ -17,10 +18,10 @@ for f in files:
 
 # Add groomed md files to pelican source folder from journal txt files
 indir = 'content/journals/bryce_caine'
+i = 0
 for root, dirs, filenames in os.walk(indir):
-    i = 0
     for filename in sorted(filenames):
-        if re.match(r'.*\.txt', filename):
+        if re.match(r'.*\.txt', filename) or re.match(r'.*\.md', filename):
             i += 1
             with open(os.path.join(root, filename), 'r') as f:
                 # Derive tags from file content
@@ -31,8 +32,9 @@ for root, dirs, filenames in os.walk(indir):
 
                 # Get date string from existing filename and use it to name
                 # the new file
-                date_str = re.search(r'(\d{2}_\d{2}_\d{4})', filename).group().replace('_', '.')
-                new_filename = 'Journal Entry %s%s.md' % (i, date_str)
+                date_str = re.search(r'(\d{2,4}[_.-]{1}\d{2}[_.-]{1}\d{2,4})', filename).group().replace('_', '.').replace('-', '.')
+                date = parse(date_str)
+                new_filename = 'Journal Entry %s%s.md' % (i, date.strftime('%Y.%m.%d'))
 
                 with open(os.path.join('content_myjournal', new_filename), 'w') as file_to_tag:
                     file_to_tag.write(tags_str + '\n\n')
@@ -42,5 +44,5 @@ for root, dirs, filenames in os.walk(indir):
 # Add all other files
 for root, dirs, filenames in os.walk(indir):
     for filename in filenames:
-        if not re.match(r'.*\.txt', filename):
+        if not re.match(r'.*\.txt', filename) and not re.match(r'.*\.md', filename):
             shutil.copy2(os.path.join(root, filename), 'content_myjournal')

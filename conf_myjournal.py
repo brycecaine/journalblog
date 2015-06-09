@@ -10,10 +10,10 @@ PATH = 'content_myjournal'
 SITENAME = 'Bryce Caine'
 OUTPUT_PATH = '/usr/share/nginx/www'
 SITEURL = 'http://192.168.1.154'
-USE_FOLDER_AS_CATEGORY = False
+USE_FOLDER_AS_CATEGORY = True
 # FILENAME_METADATA = '(?P<date>\d{4}\.\d{1}[1-9]\d{1}\.\d{1}[1-9]\d{1}).*'
 # FILENAME_METADATA = '(?P<date>\d{4}\.\d{2}\.\d{2}).*'
-FILENAME_METADATA = '(?P<title>.*)(?P<date>\d{2}\.\d{2}\.\d{4}).*'
+FILENAME_METADATA = '(?P<title>.*)(?P<date>\d{4}\.\d{2}\.\d{2}).*'
 # FILENAME_METADATA = '(?P<title>.*).*'
 AUTHOR = 'Bryce Caine'
 
